@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mysql-4:
+    container_name: mysql-4
+    image: mysql4
+    hostname: mysql4
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+  java-4:
+    container_name: java-4
+    image: jar4
+    depends_on:
+      - mysql-4
+    links:
+      - mysql-4
+    environment:
+      MYSQL_IP: mysql-4
+      MYSQL_PORT: 3306
