@@ -20,13 +20,11 @@ public class FilmServiceImpl implements FilmService {
     @Override
     @Transactional
     public void insertFilm(FilmE film) {
-        try {
-            int i = 5 / 0;
+
             filmMapper.insertFilm(film);
-        }
-        catch (Exception e){
-            System.out.println(e);
-        }
+            int i = 5 / 0;
+
+
     }
 
     @Override

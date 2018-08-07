@@ -30,7 +30,7 @@
         <aop:aspect id="insertAspect" ref="insertInterceptor">
             <aop:pointcut expression="execution(* com.hand.api.service.*.insert*(..))" id="insertPointCut"/>
             <!--方法执行之前被调用执行的-->
-            <aop:before method="before" pointcut-ref="insertPointCut"/><!--一个切入点的引用-->
+            <aop:before method="before" pointcut-ref="insertPointCut" /><!--一个切入点的引用-->
             <aop:after method="after" pointcut-ref="insertPointCut"/><!--一个切入点的引用-->
         </aop:aspect>
     </aop:config>
