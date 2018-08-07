@@ -16,4 +16,7 @@
     <typeAliases>
         <package name="com.hand.domain.entity"/>
     </typeAliases>
+    <plugins>
+        <plugin interceptor="com.hand.infra.util.SqlCostInterceptor"/>
+    </plugins>
 </configuration>

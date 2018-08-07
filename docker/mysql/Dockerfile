@@ -1,18 +1,7 @@
-
 FROM registry.saas.hand-china.com/tools/mysql:5.6
 
+COPY ./sakila-schema.sql /mysql/sakila-schema.sql
+COPY ./sakila-data.sql /mysql/sakila-data.sql
 
-ENV AUTO_RUN_DIR /docker-entrypoint-initdb.d
-
-ENV FILE1 a.sql
-
-
-ENV INSTALL_DATA_SHELL install_data.sh
-
-RUN mkdir -p /usr/local/work
-
-COPY ./$FILE1 /usr/local/work/
-
-COPY ./$INSTALL_DATA_SHELL $AUTO_RUN_DIR/
-
-RUN chmod a+x $AUTO_RUN_DIR/$INSTALL_DATA_SHELL
+RUN cat /mysql/sakila-schema.sql > /docker-entrypoint-initdb.d/dump.sql
+RUN cat /mysql/sakila-data.sql >> /docker-entrypoint-initdb.d/dump.sql
